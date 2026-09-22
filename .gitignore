@@ -1,0 +1,12 @@
+# Arquivos temporários do Python
+__pycache__/
+*.py[cod]
+
+# Ambientes virtuais
+.venv/
+venv/
+
+# Configurações de editores e sistema operacional
+.vscode/
+.idea/
+.DS_Store
