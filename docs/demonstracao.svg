@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" rx="18" fill="#0d1117"/>
+  <rect width="1200" height="54" rx="18" fill="#161b22"/>
+  <rect y="36" width="1200" height="18" fill="#161b22"/>
+  <circle cx="30" cy="27" r="8" fill="#ff5f56"/>
+  <circle cx="56" cy="27" r="8" fill="#ffbd2e"/>
+  <circle cx="82" cy="27" r="8" fill="#27c93f"/>
+  <text x="600" y="34" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="16">gerenciador_gastos.py</text>
+  <g fill="#c9d1d9" font-family="monospace" font-size="21">
+    <text x="52" y="100">========================================================================</text>
+    <text x="600" y="135" text-anchor="middle" fill="#58a6ff">GERENCIADOR DE GASTOS</text>
+    <text x="52" y="170">========================================================================</text>
+    <text x="52" y="210">1. Adicionar gasto          6. Mostrar descrições</text>
+    <text x="52" y="245">2. Listar gastos            7. Ordenar por valor</text>
+    <text x="52" y="280">3. Mostrar maior gasto      8. Editar gasto</text>
+    <text x="52" y="315">4. Mostrar total            9. Excluir gasto</text>
+    <text x="52" y="350">5. Filtrar por categoria    0. Sair</text>
+    <text x="52" y="405" fill="#7ee787">========================================================================</text>
+    <text x="600" y="440" text-anchor="middle" fill="#7ee787">GASTOS CADASTRADOS</text>
+    <text x="52" y="475" fill="#7ee787">========================================================================</text>
+    <text x="52" y="515">Nº  Data        Descrição             Categoria                  Valor</text>
+    <text x="52" y="548" fill="#8b949e">------------------------------------------------------------------------</text>
+    <text x="52" y="585">1   22/09/2026  Curso de Python        Estudos                R$ 89,90</text>
+    <text x="52" y="622">2   22/09/2026  Passagem de ônibus      Transporte             R$ 12,50</text>
+  </g>
+</svg>
