@@ -1,119 +1,67 @@
 # Gerenciador de gastos em Python
 
-Projeto de terminal desenvolvido para praticar os fundamentos de Python por
-meio de um problema real: registrar e consultar gastos pessoais.
+Aplicação de terminal para registrar gastos pessoais e consultar onde o dinheiro foi usado. Permite cadastrar, listar, editar e excluir registros, filtrar por categoria e acompanhar o total acumulado.
 
-O repositório preserva a primeira versão do desafio e apresenta uma versão
-refatorada. Assim, é possível comparar o código e acompanhar minha evolução
-durante o **Curso de Python 3**, de Otávio Miranda, na Udemy.
+Desenvolvido durante meus estudos de Python. O repositório mantém a primeira solução e uma versão refatorada, permitindo comparar a evolução do código.
 
 ![Demonstração do gerenciador de gastos](docs/demonstracao.png)
 
 ## Funcionalidades
 
-- adicionar gastos com descrição, valor, categoria e data;
-- listar os registros em uma tabela organizada;
-- editar e excluir gastos;
-- mostrar o maior gasto e o total acumulado;
-- filtrar os registros por categoria;
-- exibir somente as descrições;
-- ordenar os gastos do maior para o menor valor;
-- apresentar valores no formato brasileiro, como `R$ 1.250,90`;
-- validar opções, números positivos, categorias e datas.
+- Cadastro com descrição, valor, categoria e data.
+- Listagem em tabela, maior gasto e total acumulado.
+- Filtro por categoria e ordenação do maior para o menor valor.
+- Edição de registros e exclusão com confirmação.
+- Validação de descrição, opções do menu, valores e datas.
+- Formatação brasileira de moeda, como `R$ 1.250,90`.
 
-> Os dados ficam na memória enquanto o programa está aberto. O salvamento em
-> arquivo poderá ser implementado em uma próxima versão.
+Os dados ficam em memória durante a execução e desaparecem ao encerrar o programa.
 
 ## Como executar
 
-É necessário ter o Python 3 instalado. O projeto não utiliza bibliotecas
-externas.
+Requer Python 3 e Git para clonar. Usa somente a biblioteca padrão, sem dependências externas. Execução verificada com Python 3.12.14.
+
+No Linux ou macOS:
 
 ```bash
 git clone https://github.com/LuKeT-Dev-Py/gerenciador-de-gastos-python.git
 cd gerenciador-de-gastos-python
-python gerenciador_gastos.py
+python3 gerenciador_gastos.py
 ```
 
-No Windows, caso o comando `python` não funcione, tente:
+No Windows, use `py gerenciador_gastos.py` ou `python gerenciador_gastos.py` dentro da pasta do repositório.
 
-```bash
-py gerenciador_gastos.py
-```
+Execute [gerenciador_gastos.py](gerenciador_gastos.py), a versão refatorada. [versao_original.py](versao_original.py) preserva a primeira solução para comparação.
 
-## Estrutura
+## Experimente
+
+1. Escolha `1` para adicionar um gasto.
+2. Informe `Café`, valor `25,90`, categoria `1` (Alimento) e uma data válida, como `31/10/2026`.
+3. Escolha `2` para listar ou `4` para consultar o total:
 
 ```text
-gerenciador-de-gastos-python/
-├── docs/
-│   ├── demonstracao.svg
-│   └── demonstracao.png
-├── .gitignore
-├── gerenciador_gastos.py
-├── LICENSE
-├── README.md
-└── versao_original.py
+Total acumulado: R$ 25,90
 ```
 
-- `versao_original.py`: primeira solução, mantida para comparação;
-- `gerenciador_gastos.py`: versão refatorada e recomendada para execução;
-- `docs/demonstracao.png`: captura de demonstração pronta para divulgação;
-- `docs/demonstracao.svg`: versão vetorial da demonstração.
+4. Use `8` para editar ou `9` para excluir o registro. Na edição, Enter mantém o valor atual; a exclusão exige confirmação com `s`.
+5. Escolha `0` para sair.
 
-## Principais alterações
+As categorias disponíveis são Alimento, Lazer, Transporte e Estudos. No cadastro, deixar a data vazia usa o dia atual.
 
-| Antes | Depois | Motivo |
-|---|---|---|
-| Todo o programa dentro de um único `while` | Responsabilidades divididas em funções | Facilita a leitura, os testes e futuras alterações |
-| Chaves como `Gasto` e variável `dicta` | Nomes padronizados, como `descricao` e `gasto` | Torna a intenção do código mais clara |
-| Categorias digitadas por extenso | Categorias apresentadas em um menu numérico | Evita erros de digitação |
-| Gastos exibidos como dicionários | Tabela com colunas alinhadas | Melhora a experiência no terminal |
-| Sem registro de data | Data validada no formato `DD/MM/AAAA` | Acrescenta contexto aos registros |
-| Registros imutáveis | Opções para editar e excluir | Permite corrigir e administrar os dados |
-| Valores como números comuns | Formatação brasileira (`R$ 25,90`) | Facilita a interpretação |
-| `except` genérico | Exceções específicas, como `ValueError` | Evita esconder erros inesperados |
-| Execução imediata ao importar | Proteção com `if __name__ == '__main__'` | Permite importar as funções sem iniciar o menu |
+## Organização e conceitos
 
-## Conceitos praticados
+As funções de [gerenciador_gastos.py](gerenciador_gastos.py) separam entrada, validação, operações e exibição. O programa usa listas de dicionários, laços, condicionais, compreensão de listas, `lambda`, `max`, `sum`, `sorted` e `datetime`.
 
-- listas, tuplas e dicionários;
-- funções e retorno de valores;
-- laços `while` e `for`;
-- condicionais;
-- tratamento de exceções;
-- compreensão de listas;
-- `lambda`, `max`, `sum` e `sorted`;
-- importação do módulo `datetime`;
-- validação e formatação de dados;
-- organização de um programa em responsabilidades menores.
+O bloco `if __name__ == '__main__'` permite importar as funções sem abrir o menu. O [registro de evolução](docs/evolucao.md) explica a refatoração e as decisões de validação e organização.
 
-## Aprendizados novos
+## Limitações e próximas melhorias
 
-### Validação de datas com `datetime`
+- Armazenamento somente em memória; salvar e carregar JSON é uma possível evolução.
+- Ainda não há uma suíte de testes automatizados.
+- Relatórios mensais e interface gráfica ou web são possibilidades futuras.
 
-`datetime.strptime(texto, '%d/%m/%Y')` tenta interpretar o texto de acordo com
-o formato informado. Datas inexistentes, como `31/02/2026`, geram
-`ValueError`; o programa captura esse erro e solicita outra data.
-
-### Bloco `if __name__ == '__main__'`
-
-O bloco executa `main()` somente quando o arquivo é iniciado diretamente. Se o
-arquivo for importado por outro programa, suas funções ficam disponíveis sem
-abrir o menu automaticamente.
-
-### Funções com responsabilidade única
-
-Cada função cuida de uma tarefa, como ler um valor, formatar moeda ou editar um
-registro. Essa separação reduz repetições e deixa o fluxo principal mais fácil
-de entender.
-
-## Possíveis próximas versões
-
-- salvar os gastos em JSON ou em um banco de dados;
-- criar testes automatizados;
-- gerar relatórios mensais;
-- adicionar uma interface gráfica ou web.
+O exemplo de cadastro e total acima foi conferido por execução em Python 3.12.14.
 
 ## Licença
 
-Distribuído sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE).
+[MIT](LICENSE).
